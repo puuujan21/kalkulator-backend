@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/auth';
 import wydatkiRoutes from './routes/wydatki';
 import celeRoutes from './routes/cele';
+import profilRoutes from './routes/profil';
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/wydatki', wydatkiRoutes);
 app.use('/api/cele', celeRoutes);
+app.use('/api/profil', profilRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
