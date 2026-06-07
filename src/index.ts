@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth';
+import wydatkiRoutes from './routes/wydatki';
+import celeRoutes from './routes/cele';
 
 dotenv.config();
 
@@ -12,6 +14,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
+app.use('/api/wydatki', wydatkiRoutes);
+app.use('/api/cele', celeRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
