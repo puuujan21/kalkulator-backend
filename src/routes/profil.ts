@@ -7,7 +7,7 @@ const router = Router();
 router.get('/', weryfikujToken, async (req: Request, res: Response) => {
   try {
     const wynik = await pool.query(
-      'SELECT id, email, imie, dochod_netto, stale_wydatki, onboarding_done FROM uzytkownicy WHERE id = $1',
+      'SELECT id, email, imie, dochod_netto, stale_wydatki, onboarding_done, created_at FROM uzytkownicy WHERE id = $1',
       [(req as any).uzytkownikId]
     );
     res.json(wynik.rows[0]);
